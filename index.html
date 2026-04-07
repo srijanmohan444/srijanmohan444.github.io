@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srijan Mohan | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Particles -->
+<div id="particles-js"></div>
+
+<!-- Navbar -->
+<header class="navbar">
+  <h1>Srijan Mohan</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <button id="theme-toggle">🌙</button>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="profile-wrapper">
+      <img src="https://via.placeholder.com/150" class="profile-img" alt="Profile">
+    </div>
+
+    <h2 class="hero-title">Hello, I'm <span>Srijan</span> 👋</h2>
+    <p class="subtitle">3rd Year B.Tech Student | SGSITS Indore</p>
+    <p class="tagline"><span id="typing"></span></p>
+
+    <a href="#contact" class="btn">Contact Me</a>
+
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="card fade-in">
+  <h2>About Me</h2>
+  <p>
+    I am a 3rd year B.Tech student at SGSITS Indore with a strong interest in
+    technology, creativity, and problem solving. I enjoy building modern and
+    impactful digital experiences.
+  </p>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="card fade-in">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill">HTML & CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Git & GitHub</div>
+    <div class="skill">Linux & Windows</div>
+    <div class="skill">PowerPoint</div>
+    <div class="skill">Writing</div>
+    <div class="skill">AI Tools</div>
+    <div class="skill">Prompt Engineering</div>
+    <div class="skill">Vibe Coding</div>
+    <div class="skill">Problem Solving</div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="card fade-in">
+  <h2>Contact</h2>
+  <p>Email: srijan.mohan@email.com</p>
+  <p>Phone: +91 9000000000</p>
+  <p>Location: Indore, India</p>
+</section>
+
+<footer>
+  <p>© 2026 Srijan Mohan</p>
+</footer>
+
+<!-- Particle Script -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    size: { value: 3 },
+    move: { speed: 1.5 },
+    line_linked: {
+      enable: true,
+      distance: 130,
+      color: "#38bdf8",
+      opacity: 0.4
+    },
+    color: { value: "#38bdf8" }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "grab" }
+    },
+    modes: {
+      grab: {
+        distance: 150,
+        line_linked: { opacity: 0.8 }
+      }
+    }
+  }
+});
+</script>
+
+<!-- Typing Animation -->
+<script>
+const texts = [
+  "Building skills and growing daily.",
+  "Exploring technology and creativity.",
+  "Learning. Creating. Improving.",
+  "Future Developer in Progress."
+];
+
+let count = 0, index = 0, currentText = "", letter = "";
+
+(function type() {
+  if (count === texts.length) count = 0;
+
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+
+  document.getElementById("typing").textContent = letter;
+
+  if (letter.length === currentText.length) {
+    setTimeout(() => {
+      index = 0;
+      count++;
+      setTimeout(type, 500);
+    }, 1500);
+  } else {
+    setTimeout(type, 50);
+  }
+})();
+</script>
+
+<!-- Scroll Animation -->
+<script>
+const faders = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('show');
+  });
+});
+
+faders.forEach(el => observer.observe(el));
+</script>
+
+<!-- Theme Toggle -->
+<script>
+const toggle = document.getElementById("theme-toggle");
+
+toggle.onclick = () => {
+  document.body.classList.toggle("light-mode");
+};
+</script>
+
+</body>
+</html>
